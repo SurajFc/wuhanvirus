@@ -2,14 +2,17 @@
   <div class="container mt-3 mb-2">
     detailed view
     {{country}}
-    <div class="row-2">
-      <GChart type="LineChart" :data="chartData" :options="chartOptions" />
+    <div class="row">
+      <div class="col-8">
+        <GChart type="AreaChart" :data="chartData" :options="chartOptions" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import moment from "moment";
 
 export default {
   name: "Details",
@@ -17,14 +20,18 @@ export default {
   data() {
     return {
       data: [],
-      // casedate: [],
-      // cases: [],
-      chartData: [["date", "Cases"]],
+      tdata: [],
+      chartData: [["date", "Confirmed"]],
       chartOptions: {
         chart: {
-          title: "No of Cases",
-          subtitle: "From Mar to Current"
-        }
+          title: "Confirmed",
+          curveType: "function"
+        },
+        is3D: true,
+        width: 650,
+        height: 400,
+        hAxis: { title: "Date" },
+        vAxis: { title: "Cases" }
       }
     };
   },
@@ -41,8 +48,15 @@ export default {
       //   console.log("skjfhsdkjf", this.chartData);
       // }
       this.data.forEach(e => {
-        this.chartData.push([e["Date"].split("T")[0], e["Cases"]]);
+        this.tdata.push([this.getHumanDate(e["Date"]), e["Cases"]]);
       });
+      console.log(this.tdata, this.tdata.length);
+      for (var i = this.tdata.length - 45; i < this.tdata.length; i++) {
+        this.chartData.push(this.tdata[i]);
+      }
+    },
+    getHumanDate: function(date) {
+      return moment(date, "YYYY-MM-DD").format("DD-MMM");
     }
   },
   created() {

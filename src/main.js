@@ -14,7 +14,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueGoogleCharts from 'vue-google-charts'
 
 Vue.use(VueGoogleCharts)
-
+Vue.use(require("moment"));
 
 Vue.use(VueAxios, axios)
 
