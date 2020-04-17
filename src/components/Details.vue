@@ -63,9 +63,10 @@
       },
       width: 600,
       height: 360,
+      is3D:true,
       bars: 'vertical',
       hAxis: { title: 'Date' },
-      vAxis: { title: 'Cases' }
+      vAxis: { title: 'Cases', logScale: true }
       }"
         />
       </div>
@@ -88,7 +89,7 @@
         width: 650,
         height: 400,
         hAxis: { title: 'Date' },
-        vAxis: { title: 'Cases', logScale: true }
+        vAxis: { title: 'Cases' }
       }"
         />
       </div>
@@ -152,54 +153,55 @@ export default {
   },
   methods: {
     filterData() {
-      console.log("in filter data");
       for (var i = 0; i < this.data.length - 1; i++) {
-        var t = 0;
+        var t = this.data[i].Cases;
 
         for (var j = i + 1; j < this.data.length; j++) {
-          console.log(
-            this.data[i].Date.split("T")[0],
-            this.data[j].Date.split("T")[0]
-          );
           if (
             this.data[i].Date.split("T")[0] == this.data[j].Date.split("T")[0]
           ) {
             t += this.data[j].Cases;
-            console.log("=====>", t);
           } else {
-            t = this.data[i].Cases;
             i = j - 1;
             break;
           }
         }
         this.chartData.push([this.getHumanDate(this.data[i].Date), t]);
-        console.log(this.chartData);
       }
       this.$store.dispatch("GetDetails", this.country);
     },
     newDailyCases() {
-      for (var j = this.data.length - 45; j < this.data.length - 2; ++j) {
-        var k = j + 1;
+      for (var k = 0; k < this.chartData.length; k++) {
+        var l = k + 1;
         this.daily.push([
-          this.getHumanDate(this.data[j].Date),
-          Math.abs(this.data[k].Cases - this.data[j].Cases)
+          this.chartData[k][0],
+          Math.abs(this.chartData[l][1] - this.chartData[k][1])
         ]);
       }
     },
     AllDeathData() {
-      for (var i = this.tdata.length - 45; i < this.tdata.length; i++) {
-        this.death.push([
-          this.getHumanDate(this.tdata[i].Date),
-          this.tdata[i].Cases
-        ]);
+      for (var i = 0; i < this.tdata.length - 1; i++) {
+        var t = this.tdata[i].Cases;
+
+        for (var j = i + 1; j < this.tdata.length; j++) {
+          if (
+            this.tdata[i].Date.split("T")[0] == this.tdata[j].Date.split("T")[0]
+          ) {
+            t += this.tdata[j].Cases;
+          } else {
+            i = j - 1;
+            break;
+          }
+        }
+        this.death.push([this.getHumanDate(this.data[i].Date), t]);
       }
     },
     newDailyDeathCases() {
-      for (var j = this.tdata.length - 45; j < this.tdata.length - 2; ++j) {
+      for (var j = 0; j < this.death.length; j++) {
         var k = j + 1;
         this.dailyDeath.push([
-          this.getHumanDate(this.tdata[j].Date),
-          Math.abs(this.tdata[k].Cases - this.tdata[j].Cases)
+          this.death[j][0],
+          Math.abs(this.death[k][1] - this.death[j][1])
         ]);
       }
     },
