@@ -7,7 +7,7 @@
         <br />Loading...
       </strong>
     </div>
-    <div class="container" v-else>
+    <div class="container-fluid" v-else>
       <router-view />
     </div>
   </div>

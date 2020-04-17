@@ -40,8 +40,8 @@
               font-scale="1"
               variant="danger"
             ></b-icon>
-            <i>({{i.NewConfirmed}})</i>
-            {{i.TotalConfirmed}}
+            <i>({{i.NewConfirmed | numberWithCommas}})</i>
+            {{i.TotalConfirmed | numberWithCommas}}
           </td>
           <td>
             <b-icon
@@ -50,8 +50,8 @@
               font-scale="1"
               variant="danger"
             ></b-icon>
-            <i>({{i.NewRecovered}})</i>
-            {{i.TotalRecovered}}
+            <i>({{i.NewRecovered | numberWithCommas}})</i>
+            {{i.TotalRecovered | numberWithCommas}}
           </td>
           <td>
             <b-icon
@@ -60,12 +60,15 @@
               font-scale="1"
               variant="danger"
             ></b-icon>
-            <i>({{i.NewDeaths}})</i>
-            {{i.TotalDeaths}}
+            <i>({{i.NewDeaths | numberWithCommas}})</i>
+            {{i.TotalDeaths | numberWithCommas}}
           </td>
         </tr>
       </tbody>
     </table>
+    <span class="float-right">
+      <router-link to="/country">View All</router-link>
+    </span>
   </div>
 </template>
 
@@ -79,7 +82,11 @@ export default {
       x: []
     };
   },
-
+  filters: {
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  },
   methods: {
     mysort() {
       this.newitems = this.$store.getters.allItems;
@@ -94,10 +101,10 @@ export default {
     },
 
     detailed(i) {
-      console.log(i, i.slug);
+      console.log("fc", i.TotalConfirmed, i.Slug);
       this.$router.push({
         path: "/country/" + i.Slug,
-        params: { country: i.Country }
+        params: { country: i, confirmed: i }
       });
     }
   },
