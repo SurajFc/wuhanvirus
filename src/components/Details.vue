@@ -193,7 +193,7 @@ export default {
             break;
           }
         }
-        this.death.push([this.getHumanDate(this.data[i].Date), t]);
+        this.death.push([this.getHumanDate(this.tdata[i].Date), t]);
       }
     },
     newDailyDeathCases() {
@@ -210,9 +210,10 @@ export default {
     }
   },
   created() {
+    var currentdate = new Date().toISOString().split("T")[0];
     axios
       .get(
-        `https://api.covid19api.com/dayone/country/${this.country}/status/confirmed`
+        `https://api.covid19api.com/country/${this.country}/status/confirmed?from=2020-03-01T00:00:00Z&to=${currentdate}T00:00:00Z`
       )
       .then(res => {
         this.data = res.data;
@@ -222,10 +223,9 @@ export default {
       .catch();
     axios
       .get(
-        `https://api.covid19api.com/dayone/country/${this.country}/status/deaths`
+        `https://api.covid19api.com/country/${this.country}/status/deaths?from=2020-03-01T00:00:00Z&to=${currentdate}T00:00:00Z`
       )
       .then(res => {
-        console.log("DEaths", res.data);
         this.tdata = res.data;
         this.AllDeathData();
         this.newDailyDeathCases();
