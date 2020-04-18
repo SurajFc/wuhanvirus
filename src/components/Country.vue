@@ -1,32 +1,31 @@
 <template>
   <div class="container">
-    <GChart
-      type="AreaChart"
-      :data="chartData"
-      :options="{
-          chart: {
-          title: 'Confirmed',
-          curveType: 'function'
-        },
-        is3D: true,
-        width: 1200,
-        height: 400,
-        hAxis: { title: 'Date' },
-        vAxis: { title: 'Cases'}
-        }"
-    />
+    <div class="row">
+      <div class="col-md-9 offset-2">
+        <MapChart
+          :countryData="chartData"
+          highColor="#0000A0"
+          lowColor="#ADD8E6"
+          countryStrokeColor="#909090"
+          defaultCountryFillColor="#dadada"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// import axios from "axios";
 import moment from "moment";
+import MapChart from "vue-map-chart";
 
 export default {
   name: "Country",
+  components: {
+    MapChart
+  },
   data() {
     return {
-      chartData: [["Country", "Popularity"]],
+      chartData: {},
       temp: []
     };
   },
@@ -41,13 +40,11 @@ export default {
     },
     TotalConfirmedCases() {
       this.temp = this.$store.getters.allItems;
-      console.log(this.temp);
+
       for (var i = 0; i < this.temp.length - 1; i++) {
-        this.chartData.push([
-          this.temp[i].Country,
-          this.temp[i].TotalConfirmed
-        ]);
+        this.chartData[this.temp[i].CountryCode] = this.temp[i].TotalConfirmed;
       }
+
       console.log(this.chartData);
     }
   },
