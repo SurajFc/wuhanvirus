@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <GChart
-      type="GeoChart"
+      type="AreaChart"
       :data="chartData"
       :options="{
           chart: {

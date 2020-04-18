@@ -1,19 +1,19 @@
 <template>
   <div class="container mb-3 mt-3">
-    <b-card-group deck>
+    <b-card-group deck class="mb-3">
       <b-card bg-variant="danger" text-variant="white" header="Confirmed" class="text-center">
-        <b-card-text>{{global.TotalConfirmed}}</b-card-text>
+        <b-card-text>{{global.TotalConfirmed | numberWithCommas}}</b-card-text>
       </b-card>
 
       <b-card bg-variant="info" text-variant="white" header="Active" class="text-center">
-        <b-card-text>{{global.TotalConfirmed - global.TotalRecovered - global.TotalDeaths}}</b-card-text>
+        <b-card-text>{{(global.TotalConfirmed - global.TotalRecovered - global.TotalDeaths)| numberWithCommas}}</b-card-text>
       </b-card>
 
       <b-card bg-variant="success" text-variant="white" header="Recovered" class="text-center">
-        <b-card-text>{{global.TotalRecovered}}</b-card-text>
+        <b-card-text>{{global.TotalRecovered | numberWithCommas}}</b-card-text>
       </b-card>
       <b-card bg-variant="light" text-variant="black" header="Deceased" class="text-center">
-        <b-card-text>{{global.TotalDeaths}}</b-card-text>
+        <b-card-text>{{global.TotalDeaths | numberWithCommas}}</b-card-text>
       </b-card>
     </b-card-group>
 
@@ -30,9 +30,47 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(i,index) in x" :key="i.id">
+        <tr>
+          <th scope="row">#</th>
+          <td>
+            <router-link to="/country">World</router-link>
+          </td>
+          <td>
+            <b-icon
+              icon="arrow-counterclockwise"
+              animation="spin-reverse"
+              font-scale="1"
+              variant="danger"
+            ></b-icon>
+            <i>({{global.NewConfirmed | numberWithCommas}})</i>
+            {{global.TotalConfirmed | numberWithCommas}}
+          </td>
+          <td>
+            <b-icon
+              icon="arrow-counterclockwise"
+              animation="spin-reverse"
+              font-scale="1"
+              variant="danger"
+            ></b-icon>
+            <i>({{global.NewRecovered | numberWithCommas}})</i>
+            {{global.TotalRecovered | numberWithCommas}}
+          </td>
+          <td>
+            <b-icon
+              icon="arrow-counterclockwise"
+              animation="spin-reverse"
+              font-scale="1"
+              variant="danger"
+            ></b-icon>
+            <i>({{global.NewDeaths | numberWithCommas}})</i>
+            {{global.TotalDeaths | numberWithCommas}}
+          </td>
+        </tr>
+        <tr v-for="(i,index) in xx" :key="i.id">
           <th scope="row">{{index+1}}</th>
-          <td @click="detailed(i)">{{i.Country}}</td>
+          <td>
+            <router-link :to="{name: 'Details',params: { country: i.Slug}}">{{i.Country}}</router-link>
+          </td>
           <td>
             <b-icon
               icon="arrow-counterclockwise"
@@ -79,7 +117,7 @@ export default {
     return {
       newitems: [],
       global: [],
-      x: []
+      xx: []
     };
   },
   filters: {
@@ -92,20 +130,9 @@ export default {
       this.newitems = this.$store.getters.allItems;
       this.global = this.$store.getters.allGlobal;
 
-      console.log("here");
-
-      this.x = this.newitems
+      this.xx = this.newitems
         .sort((a, b) => (a.TotalConfirmed < b.TotalConfirmed ? 1 : -1))
-        .slice(0, 50);
-      console.log(this.x);
-    },
-
-    detailed(i) {
-      console.log("fc", i.TotalConfirmed, i.Slug);
-      this.$router.push({
-        path: "/country/" + i.Slug,
-        params: { country: i, confirmed: i }
-      });
+        .slice(0, 30);
     }
   },
   created() {

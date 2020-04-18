@@ -64,8 +64,7 @@
       width: 600,
       height: 360,
       is3D:true,
-      bars: 'vertical',
-      hAxis: { title: 'Date' },
+
       vAxis: { title: 'Cases', logScale: true }
       }"
         />
@@ -109,7 +108,7 @@
         is3D: true,
         width: 650,
         height: 400,
-        hAxis: { title: 'Date' },
+     
         vAxis: { title: 'Cases' }
       }"
         />
