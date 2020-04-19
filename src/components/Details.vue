@@ -120,6 +120,7 @@
 <script>
 import axios from "axios";
 import moment from "moment";
+import NumComma from "@/mixins/NumComma";
 
 export default {
   name: "Details",
@@ -145,11 +146,7 @@ export default {
       dailyDeath: [["date", "deaths"]]
     };
   },
-  filters: {
-    numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-  },
+  mixins: [NumComma],
   methods: {
     filterData() {
       for (var i = 0; i < this.data.length - 1; i++) {
@@ -208,7 +205,7 @@ export default {
       return moment(date, "YYYY-MM-DD").format("DD-MMM");
     }
   },
-  created() {
+  mounted() {
     var currentdate = new Date().toISOString().split("T")[0];
     axios
       .get(

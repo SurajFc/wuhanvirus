@@ -111,6 +111,8 @@
 </template>
 
 <script>
+import NumComma from "@/mixins/NumComma";
+
 export default {
   name: "Home",
   data() {
@@ -120,11 +122,7 @@ export default {
       xx: []
     };
   },
-  filters: {
-    numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-  },
+  mixins: [NumComma],
   methods: {
     mysort() {
       this.newitems = this.$store.getters.allItems;
@@ -140,7 +138,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style >
 i {
   color: red;
 }
