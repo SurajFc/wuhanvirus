@@ -1,10 +1,8 @@
 <template>
   <div class="container-fluid">
-    <!-- detailed view
-    {{country}}-->
-    <div class="container">
+    <!-- <div class="container">
       <b-breadcrumb :items="items"></b-breadcrumb>
-    </div>
+    </div>-->
     <div class="row mt-4 mb-4">
       <h3 class="text-center offset-4">Coronavirus Cases:</h3>
       <h3
@@ -127,17 +125,17 @@ export default {
   props: ["country"],
   data() {
     return {
-      items: [
-        {
-          text: "Home",
-          to: { path: "/" }
-        },
-        {
-          text: "Country",
-          to: { name: "country" }
-        },
-        { text: this.country, active: true }
-      ],
+      // items: [
+      //   {
+      //     text: "Home",
+      //     to: { path: "/" }
+      //   },
+      //   {
+      //     text: "Country",
+      //     to: { name: "country" }
+      //   },
+      //   { text: this.country, active: true }
+      // ],
       data: [],
       chartData: [["date", "Confirmed"]],
       daily: [["date", "Daily"]],
