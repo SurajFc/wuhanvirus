@@ -3,7 +3,7 @@
     <b-navbar toggleable="md" class="mynav">
       <b-navbar-brand class="offset-1">
         <router-link to="/">
-          <img src="https://placekitten.com/g/30/30" alt="Kitten" />
+          <img src="@/assets/logo.jpg" alt="logo" height="30px" width="35px" />
         </router-link>
       </b-navbar-brand>
 

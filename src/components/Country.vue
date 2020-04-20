@@ -4,8 +4,8 @@
       <div class="col-md-9 offset-2">
         <MapChart
           :countryData="chartData"
-          highColor="#0000A0"
-          lowColor="#ADD8E6"
+          highColor="#ff0000"
+          lowColor="#aaaaaa"
           countryStrokeColor="#909090"
           defaultCountryFillColor="#dadada"
         />
