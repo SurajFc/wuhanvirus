@@ -15,7 +15,7 @@
             <router-link to="/">WuhanVirus</router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link to="/about">News</router-link>
+            <router-link to="/news">News</router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link to="/about">About</router-link>
