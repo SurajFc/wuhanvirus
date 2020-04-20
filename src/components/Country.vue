@@ -4,11 +4,18 @@
       <div class="col-md-9 offset-2">
         <MapChart
           :countryData="chartData"
-          highColor="#ff0000"
-          lowColor="#aaaaaa"
+          highColor="#0000FF"
+          lowColor="#ADD8E6"
           countryStrokeColor="#909090"
           defaultCountryFillColor="#dadada"
         />
+        <!-- <MapChart
+          :countryData="{'US': 4, 'CA': 7, 'GB': 8, 'IE': 14, 'ES': 21}"
+          highColor="#ff0000"
+          lowColor="#aaaaaa"
+          countryStrokeColor="#909090"
+          defaultCountryFillColor="#dadaa"
+        />-->
       </div>
     </div>
 
@@ -105,6 +112,7 @@ export default {
       for (var i = 0; i < this.temp.length - 1; i++) {
         this.chartData[this.temp[i].CountryCode] = this.temp[i].TotalConfirmed;
       }
+      console.log(this.chartData);
       this.xx = this.$store.getters.allItems;
     },
     result() {
@@ -122,7 +130,7 @@ export default {
     }
   },
 
-  mounted() {
+  created() {
     this.TotalConfirmedCases();
   }
 };
