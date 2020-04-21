@@ -18,8 +18,8 @@
     </b-card-group>
 
     <b>World Covid-19 Tracker</b>
-    <table class="table">
-      <thead>
+    <table class="table table-hover">
+      <thead class="thead-light">
         <tr>
           <th scope="col">S.No</th>
           <th scope="col">Country</th>
@@ -72,32 +72,17 @@
             <router-link :to="{name: 'Details',params: { country: i.Slug}}">{{i.Country}}</router-link>
           </td>
           <td>
-            <b-icon
-              icon="arrow-counterclockwise"
-              animation="spin-reverse"
-              font-scale="1"
-              variant="danger"
-            ></b-icon>
+            <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
             <i>({{i.NewConfirmed | numberWithCommas}})</i>
             {{i.TotalConfirmed | numberWithCommas}}
           </td>
           <td>
-            <b-icon
-              icon="arrow-counterclockwise"
-              animation="spin-reverse"
-              font-scale="1"
-              variant="danger"
-            ></b-icon>
+            <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
             <i>({{i.NewRecovered | numberWithCommas}})</i>
             {{i.TotalRecovered | numberWithCommas}}
           </td>
           <td>
-            <b-icon
-              icon="arrow-counterclockwise"
-              animation="spin-reverse"
-              font-scale="1"
-              variant="danger"
-            ></b-icon>
+            <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
             <i>({{i.NewDeaths | numberWithCommas}})</i>
             {{i.TotalDeaths | numberWithCommas}}
           </td>

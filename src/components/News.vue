@@ -8,10 +8,12 @@
     </div>
     <div v-else>
       <b>Latest News</b>
-      <div class="card mt-3">
-        <div class="row mb-3" v-for="(x,index) in news" :key="index">
+      <div class="card mt-3" v-for="(x,index) in news" :key="index">
+        <div class="row mb-3">
           <div class="col-md-3">
-            <img :src="x.img" class="card-img" alt />
+            <a :href="x.link">
+              <img :src="x.img" class="card-img" alt />
+            </a>
           </div>
           <div class="col-md-8">
             <div class="card-body">

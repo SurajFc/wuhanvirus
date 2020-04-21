@@ -1,8 +1,5 @@
 <template>
   <div class="container-fluid">
-    <!-- <div class="container">
-      <b-breadcrumb :items="items"></b-breadcrumb>
-    </div>-->
     <div class="row mt-4 mb-4">
       <h3 class="text-center offset-4">Coronavirus Cases:</h3>
       <h3
@@ -21,9 +18,7 @@
         style="color:green; font-weight: bold;"
       >{{this.$store.getters.CurItem['TotalRecovered'] | numberWithCommas}}</h3>
     </div>
-    <!-- <div class="row mt-4 mb-4">
-      <h4>Todays Cases</h4>
-    </div>-->
+
     <div class="row">
       <div class="col-6">
         Total Coronavirus Cases in
@@ -125,17 +120,6 @@ export default {
   props: ["country"],
   data() {
     return {
-      // items: [
-      //   {
-      //     text: "Home",
-      //     to: { path: "/" }
-      //   },
-      //   {
-      //     text: "Country",
-      //     to: { name: "country" }
-      //   },
-      //   { text: this.country, active: true }
-      // ],
       data: [],
       chartData: [["date", "Confirmed"]],
       daily: [["date", "Daily"]],
@@ -165,7 +149,7 @@ export default {
       this.$store.dispatch("GetDetails", this.country);
     },
     newDailyCases() {
-      for (var k = 0; k < this.chartData.length; k++) {
+      for (var k = 0; k < this.chartData.length - 1; k++) {
         var l = k + 1;
         this.daily.push([
           this.chartData[k][0],
@@ -191,7 +175,7 @@ export default {
       }
     },
     newDailyDeathCases() {
-      for (var j = 0; j < this.death.length; j++) {
+      for (var j = 0; j < this.death.length - 1; j++) {
         var k = j + 1;
         this.dailyDeath.push([
           this.death[j][0],

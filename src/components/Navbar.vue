@@ -18,10 +18,10 @@
             <router-link to="/news">News</router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link to="/about">About</router-link>
+            <router-link to="/symptoms">Symptoms</router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link to="/about">Other</router-link>
+            <router-link to="/about">About</router-link>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
