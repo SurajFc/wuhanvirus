@@ -13,5 +13,6 @@ export default {};
 <style scoped>
 .footer {
   position: fixed;
+  margin-top: 100px;
 }
 </style>
