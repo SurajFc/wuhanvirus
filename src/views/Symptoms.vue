@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container md-col-10 sm-col-10">
     <h2>
       <b>Coronavirus Symptoms (COVID-19)</b>
     </h2>
@@ -59,6 +59,7 @@
         </li>
       </ul>
     </div>
+    <br />
     <h2 id="typical">Typical Symptoms</h2>
     <p>COVID-19 typically causes flu-like symptoms including a fever and cough.</p>
     <p>In some patients - particularly the elderly and others with other chronic health conditions - these symptoms can develop into pneumonia, with chest tightness, chest pain, and shortness of breath.</p>
@@ -74,6 +75,7 @@
       <strong>rarely seems to cause a runny nose</strong>, sneezing, or sore throat (these symptoms have been observed in only about 5% of patients).
       <strong>Sore throat, sneezing, and stuffy nose are most often signs of a cold</strong>.
     </p>
+    <br />
     <h2 id="mild">80% of cases are mild</h2>
     <p>Based on all 72,314 cases of COVID-19 confirmed, suspected, and asymptomatic cases in China as of February 11, a paper by the Chinese CCDC released on February 17 and published in the Chinese Journal of Epidemiology has found that:</p>
     <ul class="story-body__unordered-list">
@@ -96,8 +98,9 @@
       <li class="story-body__list-item">Risk of death increases the older you are.</li>
       <li class="story-body__list-item">Relatively few cases are seen among children.</li>
     </ul>
-    <h2 id="pre">Pre-existing conditions</h2>
     <br />
+    <h2 id="pre">Pre-existing conditions</h2>
+
     <p>
       <em>
         See also:
@@ -124,6 +127,7 @@
       </li>
     </ol>
     <p>That said, some otherwise healthy people do seem to develop a severe form of pneumonia after being infected by the virus. The reason for this is being investigated as we try to learn more about this new virus.</p>
+    <br />
     <h2 id="examples">Examples of possible development of symptoms (from actual cases)</h2>
     <p>A man in his 40s in Japan:</p>
     <ul>
@@ -239,14 +243,9 @@
       </li>
       <li>Feb. 2: Died</li>
     </ul>
+    <br />
     <h2 id="duration">How long do symptoms last?</h2>
-    <p>
-      Using available preliminary data, the Report of the WHO-China Joint Mission published on Feb. 28 by WHO,
-      <sup>
-        [
-        <a href="#ref-5">5</a>]
-      </sup> which is based on 55,924 laboratory confirmed cases, observed the following median time from symptoms onset to clinical recovery:
-    </p>
+    <p>Using available preliminary data, the Report of the WHO-China Joint Mission published on Feb. 28 by WHO,</p>
     <ul>
       <li>
         <strong>mild cases</strong>: approximately
@@ -262,6 +261,7 @@
       </li>
     </ul>
     <p>Among patients who have died, the time from symptom onset to outcome ranges from 2 - 8 weeks.</p>
+    <br />
     <h2>Symptoms observed in hospitalized patients with COVID-19</h2>Below we list the symptoms, with
     <strong>percentages representing the proportion of patients displaying that symptom</strong>
     , as observed in hospitalized patients tested and identified as having laboratory-confirmed COVID-19 infection. These findings refer to
@@ -353,6 +353,161 @@
         </span>
       </li>
     </ul>
+    <br />
+    <h3 id="info">Information on Coronavirus Symptoms from Government Health Officials</h3>
+    <h4>Canada Public Health Agency</h4>
+    <p>
+      The Canadian PHAC
+      <a
+        href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms.html#s"
+      >section dedicated to the 2019 novel coronavirus</a> states that:
+    </p>
+    <ul>
+      <li>You may have little to no symptoms.</li>
+      <li>
+        You may not know you have symptoms of COVID-19 because they are
+        <strong>similar to a cold or flu</strong>.
+      </li>
+      <li>Symptoms may take up to 14 days to appear after exposure to the virus. This is the longest known infectious period for this virus.</li>
+    </ul>
+    <p>Symptoms have included:</p>
+    <ul>
+      <li>
+        <strong>fever</strong>
+      </li>
+      <li>
+        <strong>cough</strong>
+      </li>
+      <li>
+        <strong>difficulty breathing</strong>
+      </li>
+      <li>
+        <strong>pneumonia in both lungs</strong>
+      </li>
+    </ul>
+    <p>In severe cases, infection can lead to death.</p>
+    <h4>UK Government and NHS</h4>
+    <p>
+      The UK National Health Service
+      <a
+        href="https://www.nhs.uk/conditions/wuhan-novel-coronavirus/"
+      >(NHS) section dedicated to Coronavirus (2019-nCoV)</a> lists the following as the main symptoms of coronavirus:
+    </p>
+    <ul>
+      <li>
+        <strong>a cough</strong>
+      </li>
+      <li>
+        <strong>a high temperature</strong>
+      </li>
+      <li>
+        <strong>shortness of breath</strong>
+      </li>
+    </ul>
+    <p>
+      <br />The
+      <a
+        href="https://www.gov.uk/guidance/wuhan-novel-coronavirus-information-for-the-public"
+      >GOV.UK novel coronavirus guidance for the public</a> page says:
+    </p>
+    <ul>
+      <li>
+        Typical symptoms of coronavirus include
+        <strong>fever</strong> and a
+        <strong>cough that may progress to a severe pneumonia</strong>
+        <strong>causing shortness of breath</strong>and breathing difficulties.
+      </li>
+    </ul>
+    <p>
+      <br />The GOV.UK clinical guidance on
+      <a
+        href="https://www.gov.uk/government/publications/wuhan-novel-coronavirus-background-information/wuhan-novel-coronavirus-epidemiology-virology-and-clinical-features"
+      >Novel coronavirus (2019-nCoV): epidemiology, virology and clinical features</a> notes that:
+    </p>
+    <ul>
+      <li>
+        <strong>Fever</strong>,
+        <strong>cough</strong> or
+        <strong>chest tightness</strong>, and
+        <strong>dyspnoea</strong> are the main symptoms reported. While most cases report a mild illness, severe are also being reported, some of whom require intensive care.
+        <br />
+      </li>
+    </ul>
+    <h4>Australian Government</h4>
+    <p>
+      The Australian Government Department of Health informs that symptoms can range from mild illness to pneumonia, adding that some people will recover easily, while others may get very sick very quickly. According to their
+      <a
+        href="https://www.health.gov.au/health-topics/novel-coronavirus-2019-ncov#symptoms"
+      >list of novel coronavirus symptoms</a>, people may experience:
+    </p>
+    <ul>
+      <li>
+        <strong>fever</strong>
+      </li>
+      <li>
+        <strong>flu-like symptoms such as coughing, sore throat and fatigue</strong>
+      </li>
+      <li>
+        <strong>
+          shortness of breath
+          <br />
+        </strong>
+      </li>
+    </ul>
+    <br />
+    <h4>United States Centers for Disease Control and Prevention</h4>
+    <p>
+      The CDC has published the following infographic on its
+      <a
+        href="https://www.cdc.gov/coronavirus/2019-ncov/about/symptoms.html"
+      >Symptoms of Novel Coronavirus (2019-nCoV)</a>:
+    </p>
+    <h4>World Health Organization</h4>
+    <p>
+      The WHO has issued an
+      <a
+        href="https://www.who.int/docs/default-source/coronaviruse/clinical-management-of-novel-cov.pdf"
+      >interim guidance on the clinical management of suspected cases</a> in which it says that
+    </p>
+    <ul>
+      <li>
+        "nCoV may present with
+        <strong>mild</strong>,
+        <strong>moderate</strong>, or
+        <strong>severe</strong> illness; the latter includes severe pneumonia, ARDS, sepsis and septic shock."
+      </li>
+    </ul>
+    <h2 align="left">Sources</h2>
+    <div align="left">
+      <ol>
+        <li id="ref-1">
+          <a
+            href="https://www.cdc.gov/coronavirus/2019-ncov/about/symptoms.html"
+          >Symptoms of Novel Coronavirus (2019-nCoV)</a> - United States Centers for Disease Control and Prevention (CDC)
+        </li>
+        <li id="ref-2">
+          <a
+            href="https://jamanetwork.com/journals/jama/fullarticle/2761044?guestAccessKey=f61bd430-07d8-4b86-a749-bec05bfffb65"
+          >Clinical Characteristics of 138 Hospitalized Patients With 2019 Novel Coronavirus–Infected Pneumonia in Wuhan, China</a> - JAMA, Wang et al., February 7, 2020
+        </li>
+        <li id="ref-3">
+          <a
+            href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30183-5/fulltext"
+          >Clinical features of patients infected with 2019 novel coronavirus in Wuhan, China</a> - Huang et al., The Lancet. January 24, 2020
+        </li>
+        <li id="ref-4">
+          <a
+            href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30211-7/fulltext"
+          >Epidemiological and clinical characteristics of 99 cases of 2019 novel coronavirus pneumonia in Wuhan, China: a descriptive study</a> - Chen et al, The Lancet, January 30, 2020
+        </li>
+        <li id="ref-5">
+          <a
+            href="https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf"
+          >Report of the WHO-China Joint Mission on Coronavirus Disease 2019 (COVID-19)</a> [Pdf] - World Health Organization, Feb. 28, 2020
+          <br />
+        </li>
+      </ol>
+    </div>
   </div>
 </template>
 
@@ -385,5 +540,9 @@ ul {
 p {
   margin: 0 0 10px;
   margin-bottom: 10px;
+}
+h4 {
+  margin-top: 30px;
+  font-weight: 700;
 }
 </style>
