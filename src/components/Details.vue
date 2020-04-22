@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div class="row mt-2">
-      <h3 class="text-center offset-4">Total Cases :</h3>
+      <h3 class="text-center offset-md-5">Total Cases :</h3>
       <h3
         style="color:gray; margin-left:5px; font-weight: bold;"
       >{{this.$store.getters.CurItem['TotalConfirmed'] | numberWithCommas}}</h3>
     </div>
     <div class="row">
-      <div class="offset-2 col-md-6 col-sm-12">
+      <div class="col-md-6 offset-md-3 col-sm-10">
         <GChart
           type="PieChart"
           :data="[['Status','Cases'],
@@ -184,26 +184,25 @@ export default {
       dailyRec: [["date", "Recovered"]]
     };
   },
+
   mixins: [NumComma],
   methods: {
-    filterData() {
-      for (var i = 0; i < this.data.length - 1; i++) {
-        var t = this.data[i].Cases;
-
-        for (var j = i + 1; j < this.data.length; j++) {
-          if (
-            this.data[i].Date.split("T")[0] == this.data[j].Date.split("T")[0]
-          ) {
-            t += this.data[j].Cases;
+    Cases(a, b) {
+      for (var i = 0; i < a.length - 1; i++) {
+        var t = a[i].Cases;
+        for (var j = i + 1; j < a.length; j++) {
+          if (a[i].Date.split("T")[0] == a[j].Date.split("T")[0]) {
+            t += a[j].Cases;
           } else {
             i = j - 1;
             break;
           }
         }
-        this.chartData.push([this.getHumanDate(this.data[i].Date), t]);
+        b.push([this.getHumanDate(a[i].Date), t]);
+        console.log("here", b);
       }
-      this.$store.dispatch("GetDetails", this.country);
     },
+
     newDailyCases() {
       for (var k = 0; k < this.chartData.length - 1; k++) {
         var l = k + 1;
@@ -213,23 +212,7 @@ export default {
         ]);
       }
     },
-    AllDeathData() {
-      for (var i = 0; i < this.tdata.length - 1; i++) {
-        var t = this.tdata[i].Cases;
 
-        for (var j = i + 1; j < this.tdata.length; j++) {
-          if (
-            this.tdata[i].Date.split("T")[0] == this.tdata[j].Date.split("T")[0]
-          ) {
-            t += this.tdata[j].Cases;
-          } else {
-            i = j - 1;
-            break;
-          }
-        }
-        this.death.push([this.getHumanDate(this.tdata[i].Date), t]);
-      }
-    },
     newDailyDeathCases() {
       for (var j = 0; j < this.death.length - 1; j++) {
         var k = j + 1;
@@ -239,23 +222,7 @@ export default {
         ]);
       }
     },
-    AllRecData() {
-      for (var i = 0; i < this.rdata.length - 1; i++) {
-        var t = this.rdata[i].Cases;
 
-        for (var j = i + 1; j < this.rdata.length; j++) {
-          if (
-            this.rdata[i].Date.split("T")[0] == this.rdata[j].Date.split("T")[0]
-          ) {
-            t += this.rdata[j].Cases;
-          } else {
-            i = j - 1;
-            break;
-          }
-        }
-        this.rec.push([this.getHumanDate(this.rdata[i].Date), t]);
-      }
-    },
     newDailyRec() {
       for (var j = 0; j < this.rec.length - 1; j++) {
         var k = j + 1;
@@ -277,7 +244,8 @@ export default {
       )
       .then(res => {
         this.data = res.data;
-        this.filterData();
+        this.Cases(this.data, this.chartData);
+        this.$store.dispatch("GetDetails", this.country);
         this.newDailyCases();
       })
       .catch();
@@ -288,7 +256,7 @@ export default {
       )
       .then(res => {
         this.rdata = res.data;
-        this.AllRecData();
+        this.Cases(this.rdata, this.rec);
         this.newDailyRec();
       })
       .catch();
@@ -299,7 +267,7 @@ export default {
       )
       .then(res => {
         this.tdata = res.data;
-        this.AllDeathData();
+        this.Cases(this.tdata, this.death);
         this.newDailyDeathCases();
       })
       .catch();
