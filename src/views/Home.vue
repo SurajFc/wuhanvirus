@@ -18,80 +18,82 @@
     </b-card-group>
 
     <b>World Covid-19 Tracker</b>
-    <table class="table table-hover">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">S.No</th>
-          <th scope="col">Country</th>
-          <!-- <th scope="col">NewConfirmed</th> -->
-          <th scope="col">Total Confirmed</th>
-          <th scope="col">Total Recovered</th>
-          <th scope="col">Total Deaths</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">#</th>
-          <td>
-            <router-link to="/country">World</router-link>
-          </td>
-          <td>
-            <b-icon
-              icon="arrow-counterclockwise"
-              animation="spin-reverse"
-              font-scale="1"
-              variant="danger"
-            ></b-icon>
-            <i>({{global.NewConfirmed | numberWithCommas}})</i>
-            {{global.TotalConfirmed | numberWithCommas}}
-          </td>
-          <td>
-            <b-icon
-              icon="arrow-counterclockwise"
-              animation="spin-reverse"
-              font-scale="1"
-              variant="danger"
-            ></b-icon>
-            <i>({{global.NewRecovered | numberWithCommas}})</i>
-            {{global.TotalRecovered | numberWithCommas}}
-          </td>
-          <td>
-            <b-icon
-              icon="arrow-counterclockwise"
-              animation="spin-reverse"
-              font-scale="1"
-              variant="danger"
-            ></b-icon>
-            <i>({{global.NewDeaths | numberWithCommas}})</i>
-            {{global.TotalDeaths | numberWithCommas}}
-          </td>
-        </tr>
-        <tr v-for="(i,index) in xx" :key="i.id">
-          <th scope="row">{{index+1}}</th>
-          <td>
-            <router-link :to="{name: 'Details',params: { country: i.Slug}}">{{i.Country}}</router-link>
-          </td>
-          <td>
-            <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
-            <i>({{i.NewConfirmed | numberWithCommas}})</i>
-            {{i.TotalConfirmed | numberWithCommas}}
-          </td>
-          <td>
-            <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
-            <i>({{i.NewRecovered | numberWithCommas}})</i>
-            {{i.TotalRecovered | numberWithCommas}}
-          </td>
-          <td>
-            <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
-            <i>({{i.NewDeaths | numberWithCommas}})</i>
-            {{i.TotalDeaths | numberWithCommas}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <span class="float-right">
-      <router-link to="/country">View All</router-link>
-    </span>
+    <div class="row-cols-md-12 row-cols-sm-12">
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Country</th>
+            <!-- <th scope="col">NewConfirmed</th> -->
+            <th scope="col">Total Confirmed</th>
+            <th scope="col">Total Recovered</th>
+            <th scope="col">Total Deaths</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">#</th>
+            <td>
+              <router-link to="/country">World</router-link>
+            </td>
+            <td>
+              <b-icon
+                icon="arrow-counterclockwise"
+                animation="spin-reverse"
+                font-scale="1"
+                variant="danger"
+              ></b-icon>
+              <i>({{global.NewConfirmed | numberWithCommas}})</i>
+              {{global.TotalConfirmed | numberWithCommas}}
+            </td>
+            <td>
+              <b-icon
+                icon="arrow-counterclockwise"
+                animation="spin-reverse"
+                font-scale="1"
+                variant="danger"
+              ></b-icon>
+              <i>({{global.NewRecovered | numberWithCommas}})</i>
+              {{global.TotalRecovered | numberWithCommas}}
+            </td>
+            <td>
+              <b-icon
+                icon="arrow-counterclockwise"
+                animation="spin-reverse"
+                font-scale="1"
+                variant="danger"
+              ></b-icon>
+              <i>({{global.NewDeaths | numberWithCommas}})</i>
+              {{global.TotalDeaths | numberWithCommas}}
+            </td>
+          </tr>
+          <tr v-for="(i,index) in xx" :key="i.id">
+            <th scope="row">{{index+1}}</th>
+            <td>
+              <router-link :to="{name: 'Details',params: { country: i.Slug}}">{{i.Country}}</router-link>
+            </td>
+            <td>
+              <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
+              <i>({{i.NewConfirmed | numberWithCommas}})</i>
+              {{i.TotalConfirmed | numberWithCommas}}
+            </td>
+            <td>
+              <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
+              <i>({{i.NewRecovered | numberWithCommas}})</i>
+              {{i.TotalRecovered | numberWithCommas}}
+            </td>
+            <td>
+              <b-icon icon="arrow-up" font-scale="1" variant="danger"></b-icon>
+              <i>({{i.NewDeaths | numberWithCommas}})</i>
+              {{i.TotalDeaths | numberWithCommas}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="float-right">
+        <router-link to="/country">View All</router-link>
+      </span>
+    </div>
   </div>
 </template>
 

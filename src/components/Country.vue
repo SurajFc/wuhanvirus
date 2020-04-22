@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-9 offset-2">
+      <div class="col-md-8 offset-md-2 mb-4">
         <MapChart
           :countryData="chartData"
           highColor="#0000FF"
@@ -9,26 +9,20 @@
           countryStrokeColor="#909090"
           defaultCountryFillColor="#dadada"
         />
-        <!-- <MapChart
-          :countryData="{'US': 4, 'CA': 7, 'GB': 8, 'IE': 14, 'ES': 21}"
-          highColor="#ff0000"
-          lowColor="#aaaaaa"
-          countryStrokeColor="#909090"
-          defaultCountryFillColor="#dadaa"
-        />-->
       </div>
     </div>
 
     <div class="row">
-      <b-col class="offset-6"></b-col>
-      <b-col sm="3">
+      <b-col class="offset-md-6"></b-col>
+      <b-col sm="3" md="3" class="mb-2">
         <b-form-input id="input-default" v-model="q" placeholder="Search Country"></b-form-input>
       </b-col>
-      <b-col sm="2">
+      <br />
+      <b-col sm="2" md="2">
         <b-button variant="success" @click="result()">Search</b-button>
       </b-col>
     </div>
-    <div class="row mt-4">
+    <div class="row-cols-md-12 row-cols-sm-12 mt-4">
       <table class="table table-hover">
         <thead class="thead-light">
           <tr>
