@@ -39,8 +39,12 @@ const routes = [
     path: "/symptoms",
     name: "Symptoms",
     component: () => import("@/views/Symptoms.vue")
+  },
+  {
+    path: "/*",
+    name: "404",
+    component: () => import("@/components/404.vue")
   }
-
 ];
 
 const router = new VueRouter({
