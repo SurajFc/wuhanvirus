@@ -203,9 +203,9 @@ export default {
     DailyCases(a, b) {
       for (var k = 0; k < a.length - 1; k++) {
         var l = k + 1;
-        b.push([a[k][0], Math.abs(a[l][1] - a[k][1])]);
+        b.push([a[l][0], Math.abs(a[l][1] - a[k][1])]);
       }
-      b[a.length - 1][1] = b[b.length - 2][1];
+      // b[a.length - 1][1] = b[b.length - 2][1];
     },
 
     getHumanDate: function(date) {
