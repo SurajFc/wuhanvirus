@@ -184,11 +184,10 @@ export default {
       dailyRec: [["date", "Recovered"]]
     };
   },
-
   mixins: [NumComma],
   methods: {
     Cases(a, b) {
-      for (var i = 0; i < a.length - 1; i++) {
+      for (var i = 0; i < a.length; i++) {
         var t = a[i].Cases;
         for (var j = i + 1; j < a.length; j++) {
           if (a[i].Date.split("T")[0] == a[j].Date.split("T")[0]) {
@@ -199,39 +198,16 @@ export default {
           }
         }
         b.push([this.getHumanDate(a[i].Date), t]);
-        console.log("here", b);
       }
     },
-
-    newDailyCases() {
-      for (var k = 0; k < this.chartData.length - 1; k++) {
+    DailyCases(a, b) {
+      for (var k = 0; k < a.length - 1; k++) {
         var l = k + 1;
-        this.daily.push([
-          this.chartData[k][0],
-          Math.abs(this.chartData[l][1] - this.chartData[k][1])
-        ]);
+        b.push([a[k][0], Math.abs(a[l][1] - a[k][1])]);
       }
+      b[a.length - 1][1] = b[b.length - 2][1];
     },
 
-    newDailyDeathCases() {
-      for (var j = 0; j < this.death.length - 1; j++) {
-        var k = j + 1;
-        this.dailyDeath.push([
-          this.death[j][0],
-          Math.abs(this.death[k][1] - this.death[j][1])
-        ]);
-      }
-    },
-
-    newDailyRec() {
-      for (var j = 0; j < this.rec.length - 1; j++) {
-        var k = j + 1;
-        this.dailyRec.push([
-          this.rec[j][0],
-          Math.abs(this.rec[k][1] - this.rec[j][1])
-        ]);
-      }
-    },
     getHumanDate: function(date) {
       return moment(date, "YYYY-MM-DD").format("DD-MMM");
     }
@@ -246,7 +222,7 @@ export default {
         this.data = res.data;
         this.Cases(this.data, this.chartData);
         this.$store.dispatch("GetDetails", this.country);
-        this.newDailyCases();
+        this.DailyCases(this.chartData, this.daily);
       })
       .catch();
 
@@ -257,7 +233,8 @@ export default {
       .then(res => {
         this.rdata = res.data;
         this.Cases(this.rdata, this.rec);
-        this.newDailyRec();
+
+        this.DailyCases(this.rec, this.dailyRec);
       })
       .catch();
 
@@ -268,11 +245,9 @@ export default {
       .then(res => {
         this.tdata = res.data;
         this.Cases(this.tdata, this.death);
-        this.newDailyDeathCases();
+        this.DailyCases(this.death, this.dailyDeath);
       })
       .catch();
   }
 };
 </script>
-<style scoped>
-</style>
