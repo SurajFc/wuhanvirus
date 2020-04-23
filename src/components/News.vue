@@ -42,7 +42,7 @@ export default {
       spin: true
     };
   },
-  mounted() {
+  created() {
     axios
       .get("https://cryptic-ravine-96718.herokuapp.com/")
       .then(res => {

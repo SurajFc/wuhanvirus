@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <footer class="footer">
-      <a href="https://github.com/SurajFc/wuhanvirus">Github</a>
+      <a href="https://github.com/SurajFc/wuhanvirus">My Footer</a>
     </footer>
   </div>
 </template>
