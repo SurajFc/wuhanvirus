@@ -1,5 +1,7 @@
 # wuhanvirus
 
+https://wuhanvirus2019.netlify.app/
+
 ## Project setup
 ```
 npm install
